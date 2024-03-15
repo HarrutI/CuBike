@@ -7,6 +7,10 @@
     z-index: 0;
 }
 
+.container{
+    height: 80%;
+}
+
 .estacion{
     font-family: 'UndergroundFuente';
     position: relative;
@@ -19,6 +23,11 @@
     -webkit-box-shadow: -11px 12px 22px -5px rgba(171,171,171,0.73);
     -moz-box-shadow: -11px 12px 22px -5px rgba(171,171,171,0.73);
     box-shadow: -11px 12px 22px -5px rgba(171,171,171,0.73)
+}
+
+.estacion p{
+    margin-left: 10%;
+    width: 80%;
 }
 
 .estLibre{
