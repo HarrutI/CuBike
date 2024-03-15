@@ -72,29 +72,29 @@ class estacion
         $consulta->bindParam(':email', $email);
         $consulta->execute();
     }
-}
-    function AgregarBici($usuarioId, $marca, $modelo, $estacionId, $conexion) {
-    // Preparar la consulta SQL para insertar una nueva bicicleta
-    $query = "INSERT INTO bicicletas (marca, modelo, propietario_id, estacion_id, hora_entrada) 
-              VALUES (:marca, :modelo, :propietario_id, :estacion_id, NOW())";
 
-    // Preparar la sentencia
-    $statement = $conexion->prepare($query);
+    function AgregarBici($usuarioId, $marca, $modelo, $estacionId) {
+        // Preparar la consulta SQL para insertar una nueva bicicleta
+        $query = "INSERT INTO bicicletas (marca, modelo, propietario_id, estacion_id, hora_entrada) 
+                VALUES (:marca, :modelo, :propietario_id, :estacion_id, NOW())";
 
-    // Vincular parámetros
-    $statement->bindParam(':marca', $marca);
-    $statement->bindParam(':modelo', $modelo);
-    $statement->bindParam(':propietario_id', $usuarioId);
-    $statement->bindParam(':estacion_id', $estacionId);
+        // Preparar la sentencia
+        $statement = $this->db->prepare($query);
 
-    // Ejecutar la consulta
-    $statement->execute();
-}
+        // Vincular parámetros
+        $statement->bindParam(':marca', $marca);
+        $statement->bindParam(':modelo', $modelo);
+        $statement->bindParam(':propietario_id', $usuarioId);
+        $statement->bindParam(':estacion_id', $estacionId);
 
-    function QuitarBici($bicicletaId, $conexion) {
+        // Ejecutar la consulta
+        $statement->execute();
+    }
+
+    function QuitarBici($bicicletaId) {
         // Preparar la consulta SQL para eliminar la bicicleta del usuario
         $query = "DELETE FROM bicicletas WHERE id = :bicicleta_id";
-        $statement = $conexion->prepare($query);
+        $statement = $this->db->prepare($query);
         $statement->bindParam(':bicicleta_id', $bicicletaId);
     
         // Ejecutar la consulta
@@ -151,5 +151,7 @@ class estacion
         $consulta->bindParam(':usuario_id', $id);
         $consulta->execute();
     }
+}
+    
 
 ?>
