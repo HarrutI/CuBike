@@ -1,0 +1,32 @@
+#map {
+    position: relative;
+    height: 35%;
+    width: 70%;
+    left: 15%;
+    border: 5px solid black;
+}
+
+container{
+    text-align: center;
+}
+
+.estacion{
+    font-family: 'UndergroundFuente';
+    position: relative;
+    width: 80%;
+    border: 5px solid black;
+    margin: 3%;
+    left: 7%;
+    border-radius: 50px 10px 50px 10px;
+}
+
+.estLibre{
+    border-color: green;
+}
+
+.estCasiLibre{
+    border-color: yellow;
+}
+.estOcupada{
+    border-color: firebrick;
+}

@@ -6,7 +6,9 @@
     <title>Under Bike</title>
     <link rel="icon" href="icono.png" type="image/png">
     <link rel="stylesheet" href="style/style.css">
-    
+    <link rel="stylesheet" href="style/estaciones.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
 </head>
 <body>
     <header>
@@ -42,9 +44,25 @@
               </ul>
         </nav>
     </header>
-    <hr>
-    <container>
-        
+    <hr><br><br>
+    <container align="center">
+        <div id="map"></div>
+        <script src="js/estacion.js"></script>
+        <br>
+        <div class="estacion estLibre">
+            <p>Parking Parque Maria Cristina</p>
+            <p>Capacidad disponible: 5</p>
+        </div>
+
+        <div class="estacion estCasiLibre">
+            <p>Parking Estacion de Autobuses San Bernardo</p>
+            <p>Capacidad disponible: 1</p>
+        </div>
+
+        <div class="estacion estOcupada">
+            <p>Escuela Politecnica Superior de Algeciras</p>
+            <p>Capacidad: Lleno</p>
+        </div>
     </container>
     <footer>
         <a href="#" target="_blank">
