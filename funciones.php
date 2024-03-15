@@ -172,6 +172,49 @@ class estacion
         $consulta->bindParam(':usuario_id', $usuario_id);
         $consulta->execute();
     }    
+
+	function libreEstacion($id_estacion){
+
+        $sql = "SELECT * FROM bicicletas WHERE estacion_id= :estac";
+        $consulta = $this->db->prepare($sql);
+        $consulta->bindParam(':estac', $id_estacion);
+        $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
+
+        $bicisDentro = sizeof($resultado);
+
+        $sql = "SELECT * FROM estacion WHERE estacion_id= :estac";
+        $consulta = $this->db->prepare($sql);
+        $consulta->bindParam(':estac', $id_estacion);
+        $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
+
+        if($bicisDentro < $resultado[0]['capacidad']){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
+
+    function modificarBicisEstacion($id_bici,$id_estacion,$option)
+    {
+        if($this->libreEstacion($id_estacion)){
+
+            $sql = "UPDATE bicicletas SET estacion_id = :id_est WHERE id = :bici_id";
+
+            // Preparar la consulta
+            $consulta = $this->db->prepare($sql);
+
+            // Asignar los parámetros y ejecutar la consulta
+            $consulta->bindParam(':bici_id', $id_bici);
+
+            if($option==0){
+                $id_estacion = null;
+            }
+            
+            $consulta->bindParam(':id_est', $id_estacion);
+            $consulta->execute();
+        }
+    }
 }
 
 ?>
