@@ -101,4 +101,55 @@ class estacion
         $statement->execute();
     }
 
+	//inicia sesion
+    function logIn($email,$pass){
+
+        //hago la sentencia sql
+        $sql = "SELECT * FROM usuarios WHERE email= :email AND password=:pass";
+        $consulta = $this->db->prepare($sql);
+        $consulta->bindParam(':email', $email);
+        $consulta->bindParam(':pass', $pass);
+        $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
+
+        //si hay una coincidencia, significa que email y contraseña es correcto y el length del array es mayor que 0
+        if(sizeof($resultado) > 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    function subscribirse($id,$option){
+        
+        //option puede ser de 1 dia, 1 semana o 1 mes, recogiendo la palabra dia, semana o mes
+
+        $fecha_actual = date('Y-m-d H:i:s');
+
+        switch ($option) {
+            case 'dia':
+                $fecha_nueva = date('Y-m-d H:i:s', strtotime($fecha_actual . '+1 day'));
+                break;
+            case 'semana':
+                $fecha_nueva = date('Y-m-d H:i:s', strtotime($fecha_actual . '+1 week'));
+                break;
+            case 'mes':
+                $fecha_nueva = date('Y-m-d H:i:s', strtotime($fecha_actual . '+1 month'));
+                break;
+            default:
+                // Si la opción no es válida, no se realizará ninguna actualización
+                return false;
+        }
+
+        // Construir la consulta SQL
+        $sql = "UPDATE usuario SET fecha_subscripcion = :fecha_nueva WHERE id = :usuario_id";
+
+        // Preparar la consulta
+        $consulta = $this->db->prepare($sql);
+
+        // Asignar los parámetros y ejecutar la consulta
+        $consulta->bindParam(':fecha_nueva', $fecha_nueva);
+        $consulta->bindParam(':usuario_id', $id);
+        $consulta->execute();
+    }
+
 ?>
