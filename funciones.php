@@ -141,7 +141,7 @@ class estacion
         }
 
         // Construir la consulta SQL
-        $sql = "UPDATE usuario SET fecha_subscripcion = :fecha_nueva WHERE id = :usuario_id";
+        $sql = "UPDATE usuarios SET fecha_subscripcion = :fecha_nueva WHERE id = :usuario_id";
 
         // Preparar la consulta
         $consulta = $this->db->prepare($sql);
@@ -151,7 +151,27 @@ class estacion
         $consulta->bindParam(':usuario_id', $id);
         $consulta->execute();
     }
+
+    function AgregarEstacion($nombre,$capacidad,$ubicacion){
+        $query = "INSERT INTO Estacion(nombre, capacidad, ubicacion) 
+                VALUES(:nombre, :capacidad, :ubicacion)";
+        $statement = $this->db->prepare($query);
+        // Vincular parámetros
+        $statement->bindParam(':nombre', $nombre);    
+        $statement->bindParam(':capacidad', $capacidad);    
+        $statement->bindParam(':ubicacion', $ubicacion);    
+
+        $statement->execute();
+    }
+
+    function CambiaRol($usuario_id, $NewRol){
+        $sql = "UPDATE usuarios SET roles = :NewRol WHERE id = :usuario_id";
+
+        $consulta = $this->db->prepare($sql);
+        $consulta->bindParam(':NewRol', $NewRol);
+        $consulta->bindParam(':usuario_id', $usuario_id);
+        $consulta->execute();
+    }    
 }
-    
 
 ?>
