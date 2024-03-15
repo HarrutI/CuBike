@@ -17,8 +17,9 @@ button[type="submit"] {
 
 .login-form button[type="submit"],
 .register button {
-    width: 100%;
+    width: 92%;
     padding: 10px;
+    margin: 4%;
     border: none;
     background-color: #000;
     color: #fff;
@@ -27,11 +28,8 @@ button[type="submit"] {
     border-style: double;
     border-width: 1px;
     border-color: black;
-
-}
-
-.register button {
     border-radius: 10px;
+
 }
 
 .login-form button[type="submit"]:hover,
@@ -47,4 +45,8 @@ hr {
 .register {
     text-align: center;
     margin-top: 20px;
+}
+
+.container{
+    height: 80%;
 }
