@@ -1,0 +1,16 @@
+.cuenta-div {
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    
+  }
+
+  .cuenta-div h2 {
+    margin-bottom: 10px;
+    font-family: "UndergroundFuente";
+  }
+
+  .cuenta-div p {
+    margin: 5px 0;
+  }
