@@ -61,7 +61,17 @@ class estacion
 		return $resultado;
 	} // end ejecuta_SQL
 
-    
+    function crearCuenta($nombre,$apel,$password,$email){
+
+        $sql = "INSERT INTO usuarios (nombre, apellido, password, email) VALUES (:nombre, :apellido, :password, :email)";
+
+        $consulta = $this->db->prepare($sql);
+        $consulta->bindParam(':nombre', $nombre);
+        $consulta->bindParam(':apellido', $apel);
+        $consulta->bindParam(':password', $password);
+        $consulta->bindParam(':email', $email);
+        $consulta->execute();
+    }
 }
 
 ?>
