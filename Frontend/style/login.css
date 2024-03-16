@@ -9,10 +9,13 @@
 
 input[type="email"],
 input[type="password"],
+input[type="text"],
+input[type="tel"],
 button[type="submit"] {
     width: 100%;
-    padding: 10px;
-    box-sizing: border-box; /* Para incluir el padding en el ancho total del botón */
+    padding: 4%;
+    box-sizing: border-box;
+    margin: 3%; /* Para incluir el padding en el ancho total del botón */
 }
 
 .login-form button[type="submit"],

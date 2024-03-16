@@ -1,16 +1,23 @@
 .cuenta-div {
-    width: 300px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    
-  }
+  padding: 20px;
+  font-family: "Roboto";
+  font-weight: bold;
+}
 
-  .cuenta-div h2 {
-    margin-bottom: 10px;
-    font-family: "UndergroundFuente";
-  }
+.cuenta-div h2 {
+  margin-bottom: 10px;
+  font-family: "UndergroundFuente"; 
+}
 
-  .cuenta-div p {
-    margin: 5px 0;
-  }
+.cuenta-div p {
+  margin: 5px 0;
+}
+
+.informacion{
+  color: rgb(66, 66, 66);
+  font-weight:normal;
+}
+
+.container{
+  height: 80%;
+}

@@ -3,6 +3,11 @@
     src: url('gomarice_rockin_record.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'Roboto';
+    src: url('Roboto-Regular.ttf') format('truetype');
+}
+
 html, body{
     width: 100%;
     height: 100%;
