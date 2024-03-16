@@ -1,6 +1,12 @@
-#container {
-    padding: 20px;
+.container {
+    padding: 3%;
+    margin-bottom: 10%;
     font-family: 'UndergroundFuente', sans-serif; 
     font-size: 16px;
     line-height: 1.5;
+    height: 90%;
+}
+
+.container img{
+    width: 60%;
 }
